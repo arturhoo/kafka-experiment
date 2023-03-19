@@ -1,0 +1,8 @@
+FROM alpine
+RUN apk add --no-cache build-base git
+WORKDIR /
+RUN git clone https://github.com/beanstalkd/beanstalkd
+
+WORKDIR /beanstalkd
+RUN make
+CMD /beanstalkd/beanstalkd
